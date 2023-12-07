@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<title> Pagina principal Inventario </title>
+</head>
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+               
+        <div class="side-content">
+            <div class="profile">
+                <img src="{% static 'imagenes/platiniumlogo.jpg' %}" alt="" height="150" width="150" class="profile-img bg-img">
+              <h4> Platinium Time </h4>
+                <small> Relojeria </small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                       <a href="{% url 'registro' %}" target="3">
+                            <span class="las la-user-alt"></span>
+                            <small> INGRESAR </small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="{% url 'ventas' %}" target="3">
+                            <span class="las la-user-circle"></span>
+                            <small> VENTAS </small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="{% url 'pqrs' %}" target="3">
+                            <span class="las la-glass-martini-alt"></span>
+                            <small> PQRS </small>
+                        </a>
+                     <li>
+                        <a href="{% url 'garantias' %}" target="3">
+                             <span class="las la-file"></span>
+                             <small> GARANTIAS  </small>
+                         </a>
+                     </li>
+                     <li>
+                        <a href="{% url 'mantenimiento' %}" target="3">
+                             <span class="las la-glass-martini-alt"></span>
+                             <small> MANTENIMIENTO </small>
+                         </a>
+                      <li>             
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-parent">
+        <div class="form-wrap">
+            <h1><span>BIENVENIDO A NUESTRO SISTEMA DE INVENTARIO</span></h1>
+        </div>
+    </div>
+</body>
+</html>
