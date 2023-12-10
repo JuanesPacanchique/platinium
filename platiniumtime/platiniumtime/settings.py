@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from . import db as db
-
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'platiniumtime.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')]
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'platiniumtime.wsgi.application'
 DATABASES = {
 	'default': {
 	  'ENGINE': 'django.db.backends.mysql',
-	  'NAME': 'platinium_time',
+	  'NAME': 'catalogo',
 	  'USER': 'root',
-	  'PASSWORD': '',
+	  'PASSWORD': '2804',
 	  'HOST': 'localhost', 
 	  'PORT': '3306',
 	}
@@ -139,3 +139,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'imagenes')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
+MEDIA_URL = '/media/' # URL de la ruta de las imagenes
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Direccion de la imagen en mi proyecto
