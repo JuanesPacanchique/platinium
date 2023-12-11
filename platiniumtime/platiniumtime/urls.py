@@ -18,19 +18,22 @@ from django.contrib import admin
 from django.urls import path, include
 
 from . import views
-
+from ventas.views import ProductListView
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
+    path('ventas/', ProductListView.as_view(), name='ventas'),
     path('', views.principal, name='principal'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
-     path('register/', views.registro_view, name='register'),
-    path('ventas/', views.ventas, name='ventas'),
+    path('register/', views.registro_view, name='register'),
     path('pqrs/', views.pqrs, name='pqrs'),
     path('garantias/', views.garantias, name='garantias'),
     path('mantenimiento/', views.mantenimiento, name='mantenimiento'),
     path('admin/', admin.site.urls),
-    path('', include('ventas.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('producto/', include('ventas.urls'))
+] 
+
+if settings.DEBUG:
+    urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

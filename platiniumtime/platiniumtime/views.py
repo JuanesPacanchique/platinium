@@ -4,9 +4,20 @@ from . import views
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .forms import RegisterForm
-from ventas.models import productos
-
 from django.contrib.auth.models import User
+from django.http import HttpResponse
+
+from ventas.models import Product
+def ventas(request):
+
+    products = Product.objects.all().order_by('-id')
+
+
+    return render(request,'productos.html',{
+        'message':'Listado de Productos',
+        'title' : 'Productos',
+        'products': products,
+    })
 
 def principal(request):
     return render(request,'principal.html',{
@@ -49,11 +60,6 @@ def registro_view(request):
         'form': form
     })
 
-def ventas(request):
-    return render(request,'ventas.html',{
-        #context
-    })
-
 def pqrs(request):
     return render(request,'pqrs.html',{
         #context
@@ -70,10 +76,5 @@ def mantenimiento(request):
     })
 
 
-def vista_tus_productos(request):
-    # Obtener los últimos 5 productos añadidos, por ejemplo
-    nuevos_productos = productos.objects.order_by('-fecha_creacion')[:5]
 
-    # Luego, pasa estos productos a tu plantilla para mostrarlos
-    return render(request, 'ventas.html', {'nuevos_productos': nuevos_productos})
 
