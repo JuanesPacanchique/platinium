@@ -68,26 +68,28 @@
                </div>
             </main>
           
-        <form action="/pqrs/" method="post">
-          {% csrf_token %}
-          <div class="col2">
-            <div class="tipopqrs">
-            <label class="labels" for="Tipo de documento">Tipo de PQRS:</label>
-          </div>
-            <div class="Tipos"><select class="form-select" aria-label="Default select example">
-              <option selected></option>
-              <option value="1">Pregunta</option>
-              <option value="2">Queja</option>
-              <option value="3">Reclamo</option>
-              <option value="4">Sugerencia</option>
-            </select>
-            </div> 
-            <br><br><br>              
-            <textarea name="pqrs" placeholder="Escriba su PQRS..."></textarea><br>
-            <button type="button" class="btn btn-dark btn-lg text-light boton-atras">Atras</button>
-            <button type="submit" class="btn btn-dark btn-lg text-light boton-enviar">Enviar</button>
-          </div>
-        </form>
+            <form action="{% url 'crear_pqrs' %}" method="POST">
+              {% csrf_token %}
+              <div class="col2">
+                  <div class="tipopqrs">
+                      <label class="labels" for="Tipo de documento">Tipo de PQRS:</label>
+                  </div>
+                  <div class="Tipos" for="opcion">
+                      <select class="form-select" name="opcion" aria-label="Default select example">
+                          <option value="" selected disabled>Seleccione una opción</option>
+                          <option value="pregunta">Pregunta</option>
+                          <option value="queja">Queja</option>
+                          <option value="reclamo">Reclamo</option>
+                          <option value="sugerencia">Sugerencia</option>
+                      </select>
+                  </div>
+                  <br><br><br>
+                  <textarea name="texto" placeholder="Escriba su PQRS..."></textarea><br>
+                  <input type="hidden" name="correo" value="{{ user.email }}">
+                  <button type="button" class="btn btn-dark btn-lg text-light boton-atras">Atras</button>
+                  <button type="submit" class="btn btn-dark btn-lg text-light boton-enviar">Enviar</button>
+              </div>
+          </form>
         </div>
       </div>
       <br><br><br><br><br>
