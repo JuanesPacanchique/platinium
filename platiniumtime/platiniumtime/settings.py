@@ -32,6 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'shipping_addresses',
+    'orders',
+    'carts',
+    'usuarios',
+    'categorias',
     'ventas',
     'pqrs',
     'django.contrib.admin',
@@ -55,10 +60,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'platiniumtime.urls'
 
+AUTH_USER_MODEL = 'usuarios.User'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

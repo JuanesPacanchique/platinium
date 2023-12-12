@@ -1,0 +1,26 @@
+[
+{
+    "model": "ventas.product",
+    "pk": 9,
+    "fields": {
+        "title": "cuadro",
+        "description": "cuadro",
+        "price": "90.000",
+        "slug": "cuadro",
+        "image": "productos/copa-mundial-de-la-fifa-catar-2022_3840x2160_xtrafondos.com.jpg",
+        "created_at": "2023-12-11T09:10:49.571Z"
+    }
+},
+{
+    "model": "ventas.product",
+    "pk": 10,
+    "fields": {
+        "title": "fifa",
+        "description": "la fifa",
+        "price": "56.000",
+        "slug": "fifa",
+        "image": "productos/fifa-fondo.jpg",
+        "created_at": "2023-12-12T06:38:01.792Z"
+    }
+}
+]

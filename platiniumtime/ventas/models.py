@@ -13,9 +13,9 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
  
-    #def save(self, *args, **kwargs):
-    #   self.slug = slugify(self.title)
-    #   super(Product,self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+       self.slug = slugify(self.title)
+       super(Product,self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title

@@ -1,17 +1,15 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 <div class="col">
-    <h4 class="text-center"> {{ message }} </h4>
+    <h4 class="text-center">{{ message }}</h4>
+     {% include 'productos/snippets/search.html' %}
 
-    {% for product in product_list %}
-     
-    {% endfor %}
+     {% include 'productos/snippets/list.html' %}
 
 </div>
-    
 {% endblock %}
-    
+
+
 
 

@@ -31,8 +31,10 @@ urlpatterns = [
     path('garantias/', views.garantias, name='garantias'),
     path('mantenimiento/', views.mantenimiento, name='mantenimiento'),
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('producto/', include('ventas.urls'))
+    path('producto/', include('ventas.urls')),
+    path('carrito/', include('carts.urls')),
+    path('orden/', include('orders.urls')),
+    path('direcciones/', include('shipping_addresses.urls'))
 ] 
 
 if settings.DEBUG:

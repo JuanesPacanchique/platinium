@@ -4,10 +4,14 @@ from . import views
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .forms import RegisterForm
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 from django.http import HttpResponse
 
+from usuarios.models import User
+
 from ventas.models import Product
+from django.http import HttpResponseRedirect
+
 def ventas(request):
 
     products = Product.objects.all().order_by('-id')
@@ -33,6 +37,10 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
+
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET['next'])
+
             return redirect('principal')
         else: 
             messages.error(request, 'Usuario o contraseña no validos')
